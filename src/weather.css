@@ -1,0 +1,56 @@
+.weather {
+  margin: 30px auto;
+  border-radius: 5px;
+  display: block;
+  max-width: 800px;
+}
+
+.weather .search {
+  display: flex;
+  display: inline-flex;
+}
+.weather button {
+  margin-left: 30px;
+}
+.weather .datentime {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+.weather.date {
+  justify-content: flex-start;
+  border: 0.2px solid black;
+}
+.weather .time {
+  justify-content: flex-end;
+}
+.weather h1,
+h6 {
+  display: inline;
+}
+
+.weather h5 {
+  font-family: "Rajdhani", sans-serif;
+}
+
+.weather a {
+  color: black;
+}
+
+.weather a:visited {
+  color: pink;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin-top: 15px;
+  padding: 0;
+  margin: 0;
+  font-family: "Rajdhani", sans-serif;
+}
+
+.weather li {
+  border-bottom: 0.5px solid black;
+  border-bottom-style: ridge;
+}
