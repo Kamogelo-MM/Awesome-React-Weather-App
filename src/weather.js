@@ -7,6 +7,7 @@ import WeatherInform from "./WeatherInform";
 
 export default function Weather(props) {
   const [WeatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
 
   function HandleResponse(response) {
     console.log(response);
@@ -22,37 +23,48 @@ export default function Weather(props) {
       feels_like: Math.round(response.data.temperature.feels_like),
       humidity: response.data.temperature.humidity,
       pressure: Math.round(response.data.temperature.pressure),
-      iconUrl:
-        "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png",
+      icon: response.data.condition.icon,
+      cityName: response.data.city,
     });
   }
 
-  function handleSubmit() {
-    const apiKey = " ff34aa210561032bc3252bb6a9do1e5t";
+  function handleSubmit(event) {
+    event.preventDefault;
+    search();
+  }
 
-    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=metric`;
+  function HandleCityResponse(event) {
+    setCity(event.target.value);
+  }
+
+  function search() {
+    const apiKey = " ff34aa210561032bc3252bb6a9do1e5t";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(HandleResponse);
   }
 
   if (WeatherData.ready) {
     return (
       <div className="weather border p-3">
-        <div className="row">
-          <div className="search" onSubmit={handleSubmit}>
-            <div className="col-sm-6 ">
-              <input
-                className="form-control"
-                autoFocus="on"
-                placeholder="Search City..."
-              ></input>
-            </div>
-            <div className="col-sm-3 ">
-              <button type="submit" className="btn btn-dark">
-                Search
-              </button>
+        <form onSubmit={handleSubmit}>
+          <div className="row">
+            <div className="search">
+              <div className="col-sm-6 ">
+                <input
+                  className="form-control"
+                  autoFocus="on"
+                  placeholder="Search City..."
+                  onChange={HandleCityResponse}
+                ></input>
+              </div>
+              <div className="col-sm-3 ">
+                <button type="submit" className="btn btn-dark">
+                  Search
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </form>
         <WeatherInform data={WeatherData} />
       </div>
     );

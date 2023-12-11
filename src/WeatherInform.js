@@ -13,11 +13,11 @@ export default function WeatherInform(props) {
     <div className="middle">
       <div className="row">
         <div className="col-2">
-          <img src={props.data.icon_url} alt="weather icon" />
+          <img src={props.data.icon} alt="weather icon" />
         </div>
         <div className="col-sm-4">
           <h3>
-            {props.data.city},{props.data.country}
+            {props.data.cityName},{props.data.country}
           </h3>
           <h1>
             {props.data.temperature}&deg;
