@@ -1,15 +1,14 @@
 import React from "react";
-import theDate from "./theDate";
 
 export default function WeatherInform(props) {
   <div className="Weatherinform">
     <div className="row mt-3 datentime">
       <div className="col-sm-6 date ">
         <h5>
+          Date:
           <theDate date={props.data.date} />
         </h5>
       </div>
-      <div className="col-sm-6"></div>
     </div>
     <div className="middle">
       <div className="row">
