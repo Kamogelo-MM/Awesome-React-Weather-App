@@ -1,4 +1,5 @@
 import "./App.css";
+
 import Weather from "./weather";
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -7,6 +8,7 @@ function App() {
     <div className="App">
       <div className="container">
         <Weather defaultCity="Cape Town" />
+
         <div className="row">
           <div className="col-sm-8">
             <footer>
