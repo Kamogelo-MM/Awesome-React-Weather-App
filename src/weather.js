@@ -29,7 +29,7 @@ export default function Weather(props) {
   }
 
   function handleSubmit(event) {
-    event.preventDefault;
+    event.preventDefault();
     search();
   }
 
@@ -69,12 +69,7 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    let apiKey = "ff34aa210561032bc3252bb6a9do1e5t";
-    let units = "metric";
-    let city = "Paris";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
-    axios.get(apiUrl).then(HandleResponse);
-
-    return "Loading weather";
+    search();
+    return "Loading weather...";
   }
 }
