@@ -9,9 +9,7 @@ export default function WeatherInform(props) {
           <theDate date={props.data.date} />
         </h5>
       </div>
-      <div className="col-sm-6">
-        <h5></h5>
-      </div>
+      <div className="col-sm-6"></div>
     </div>
     <div className="middle">
       <div className="row">
@@ -24,7 +22,7 @@ export default function WeatherInform(props) {
           </h3>
           <h1>
             {props.data.temperature}&deg;
-            <a href="#">C</a>|<a href="#">F</a>
+            <button>C</button>|<button>F</button>
           </h1>
           <h5 className="mt-1">{props.data.description}</h5>
         </div>
