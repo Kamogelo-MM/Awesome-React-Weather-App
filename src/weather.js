@@ -13,18 +13,17 @@ export default function Weather(props) {
     console.log(response);
     setWeatherData({
       ready: true,
-      date: new Date(response.data.time * 1000),
       temperature: Math.round(response.data.temperature.current),
       city: response.data.city,
+      date: new Date(response.data.time * 1000),
       description: response.data.condition.description,
-      country: response.data.coordinates.country,
+      country: response.data.country,
       windSpeed: response.data.wind.speed,
       wind: response.data.wind.degree,
       feels_like: Math.round(response.data.temperature.feels_like),
       humidity: response.data.temperature.humidity,
       pressure: Math.round(response.data.temperature.pressure),
       icon: response.data.condition.icon,
-      cityName: response.data.city,
     });
   }
 
@@ -38,7 +37,7 @@ export default function Weather(props) {
   }
 
   function search() {
-    const apiKey = " ff34aa210561032bc3252bb6a9do1e5t";
+    const apiKey = "ff34aa210561032bc3252bb6a9do1e5t";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(HandleResponse);
   }
